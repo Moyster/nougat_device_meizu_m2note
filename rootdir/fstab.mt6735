@@ -8,7 +8,6 @@
 /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/userdata	/data        f2fs   noatime,nosuid,nodev,inline_xattr               wait,check,resize,encryptable=/dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/metadata
 /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/cache	/cache       ext4   noatime,nosuid,nodev,noauto_da_alloc,discard               wait,check
 /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/cache	/cache       f2fs   noatime,nosuid,nodev,inline_xattr               wait,check
-
 /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/protect1	/protect_f   ext4   noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc   wait,check,autoformat
 /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/protect2	/protect_s   ext4   noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc   wait,check,autoformat
 /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/nvdata	/nvdata		ext4	noatime,nosuid,nodev,noauto_da_alloc,discard        wait,check,autoformat
