@@ -2,7 +2,6 @@
 PRODUCT_PACKAGES += \
     Stk \
     Torch \
-    Gello \
     Snap
 
 # Mtk symbols & shim
