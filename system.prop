@@ -10,7 +10,7 @@ ro.mediatek.wlan.wsc=1
 ro.mediatek.wlan.p2p=1
 mediatek.wlan.ctia=0
 
-wifi.tethering.interface=ap0
+wifi.tethering.interface=wlan0
 wifi.direct.interface=p2p0
 
 # Camera
