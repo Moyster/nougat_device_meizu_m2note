@@ -3,17 +3,20 @@
 # The filesystem that contains the filesystem checker binary (typically /system) cannot
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
-/dev/block/platform/mtk-msdc.0/by-name/boot			/boot		emmc	defaults								defaults
-/dev/block/platform/mtk-msdc.0/by-name/cache      /cache       ext4   noatime,nosuid,nodev,noauto_da_alloc,discard               wait,check
-/dev/block/platform/mtk-msdc.0/by-name/lk			/uboot		emmc	defaults								defaults
-/dev/block/platform/mtk-msdc.0/by-name/logo			/logo		emmc	defaults								defaults
-/dev/block/platform/mtk-msdc.0/by-name/metadata			/metadata		emmc	defaults								defaults
-/dev/block/platform/mtk-msdc.0/by-name/nvdata      /nvdata             ext4      noatime,nosuid,nodev,noauto_da_alloc,discard        wait,check,autoformat
-/dev/block/platform/mtk-msdc.0/by-name/nvram		/nvram		emmc	defaults								defaults
-/dev/block/platform/mtk-msdc.0/by-name/recovery		/recovery	emmc	defaults								defaults
-/dev/block/platform/mtk-msdc.0/by-name/system     /system      ext4   ro						         wait
-/dev/block/platform/mtk-msdc.0/by-name/userdata   /data        ext4   noatime,nosuid,nodev,noauto_da_alloc,discard               wait,check,resize,encryptable=/dev/block/platform/mtk-msdc.0/by-name/metadata
+/dev/block/platform/mtk-msdc.0/by-name/boot		/boot		emmc	defaults					defaults
+/dev/block/platform/mtk-msdc.0/by-name/cache		/cache		ext4	noatime,nosuid,nodev,noauto_da_alloc,discard	wait,check
+/dev/block/platform/mtk-msdc.0/by-name/cache		/cache		f2fs	rw,discard,nosuid,nodev,noatime,inline_xattr,noinline_dentry	wait
+/dev/block/platform/mtk-msdc.0/by-name/lk		/uboot		emmc	defaults					defaults
+/dev/block/platform/mtk-msdc.0/by-name/logo		/logo		emmc	defaults					defaults
+/dev/block/platform/mtk-msdc.0/by-name/metadata		/metadata	emmc	defaults					defaults
+/dev/block/platform/mtk-msdc.0/by-name/nvdata		/nvdata		ext4	noatime,nosuid,nodev,noauto_da_alloc,discard	wait,check,autoformat
+/dev/block/platform/mtk-msdc.0/by-name/nvram		/nvram		emmc	defaults					defaults
+/dev/block/platform/mtk-msdc.0/by-name/recovery		/recovery	emmc	defaults					defaults
+/dev/block/platform/mtk-msdc.0/by-name/system		/system		ext4	ro						wait
+/dev/block/platform/mtk-msdc.0/by-name/userdata		/data		ext4	noatime,nosuid,nodev,noauto_da_alloc,discard	wait,check,resize,encryptable=/dev/block/platform/mtk-msdc.0/by-name/metadata
+/dev/block/platform/mtk-msdc.0/by-name/userdata		/data		f2fs	rw,discard,nosuid,nodev,noatime,inline_xattr,noinline_dentry	wait,check,encryptable=/dev/block/platform/mtk-msdc.0/by-name/metadata
+/dev/block/platform/mtk-msdc.0/by-name/frp		/persistent	emmc	defaults					defaults
 
-/devices/mtk-msdc.0/11240000.MSDC1/mmc_host/mmc1  auto      vfat      defaults        voldmanaged=sdcard1:auto,noemulatedsd
-/devices/platform/mt_usb                auto      vfat      defaults        voldmanaged=usbotg:auto
-/dev/block/platform/mtk-msdc.0/by-name/frp    /persistent     emmc  defaults                                                          defaults
+
+/devices/mtk-msdc.0/11240000.MSDC1/mmc_host/mmc1	auto		vfat	defaults					voldmanaged=sdcard1:auto,noemulatedsd
+/devices/platform/mt_usb              			auto		vfat	defaults					voldmanaged=usbotg:auto
