@@ -8,7 +8,6 @@ LINKER_FORCED_SHIM_LIBS := /system/lib/libshowlogo.so|libshim_asc.so:/system/lib
 BOARD_USES_MTK_HARDWARE := true
 
 # Global flags
-BOARD_GLOBAL_CFLAGS += -DDISABLE_ASHMEM_TRACKING
 BOARD_GLOBAL_CFLAGS += -DCAMERA_VENDOR_L_COMPAT
 
 # Camera flags
