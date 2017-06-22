@@ -6,6 +6,5 @@ init_daemon_domain(wmt_loader)
 allow wmt_loader wmtdetect_device:chr_file create_file_perms;
 allow wmt_loader self:capability { chown dac_override };
 allow wmt_loader proc_wmt:file setattr;
-allow wmt_loader wmt_prop:property_service set;
 
-unix_socket_connect(wmt_loader, property, init)
+set_prop(wmt_loader, wmt_prop)

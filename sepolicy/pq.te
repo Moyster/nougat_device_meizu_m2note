@@ -8,8 +8,6 @@ binder_call(pq, binderservicedomain)
 binder_service(pq)
 
 allow pq pq_service:service_manager add;
-unix_socket_connect(pq, property, init)
-
-allow pq pq_conf_prop:property_service set;
+set_prop(pq, pq_conf_prop)
 
 allow pq graphics_device:chr_file r_file_perms;

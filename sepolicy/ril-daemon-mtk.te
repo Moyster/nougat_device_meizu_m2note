@@ -17,9 +17,7 @@ allow ril-daemon-mtk self:capability { setuid net_admin net_raw };
 allow ril-daemon-mtk radio_device:dir search;
 allow ril-daemon-mtk radio_prop:property_service set;
 
-allow ril-daemon-mtk ctl_muxreport-daemon_prop:property_service set;
-allow ril-daemon-mtk ril_mux_report_case_prop:property_service set;
-allow ril-daemon-mtk ril_sim_inserted_status:property_service set;
-allow ril-daemon-mtk serial_number_prop:property_service set;
-
-unix_socket_connect(ril-daemon-mtk, property, init)
+set_prop(ril-daemon-mtk, ctl_muxreport-daemon_prop)
+set_prop(ril-daemon-mtk, ril_mux_report_case_prop)
+set_prop(ril-daemon-mtk, ril_sim_inserted_status)
+set_prop(ril-daemon-mtk, serial_number_prop)

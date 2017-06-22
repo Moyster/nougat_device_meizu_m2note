@@ -11,8 +11,6 @@ allow gsm0710muxd self:capability { setuid fowner chown };
 allow gsm0710muxd sysfs_ccci:dir search;
 allow gsm0710muxd sysfs_ccci:file r_file_perms;
 
-allow gsm0710muxd ctl_rildaemon_prop:property_service set;
-allow gsm0710muxd radio_prop:property_service set;
-allow gsm0710muxd ril_mux_report_case_prop:property_service set;
-
-unix_socket_connect(gsm0710muxd, property, init)
+set_prop(gsm0710muxd, ctl_rildaemon_prop)
+set_prop(gsm0710muxd, radio_prop)
+set_prop(gsm0710muxd, ril_mux_report_case_prop)

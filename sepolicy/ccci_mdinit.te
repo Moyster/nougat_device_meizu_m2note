@@ -16,13 +16,11 @@ allow ccci_mdinit sysfs_devinfo:file r_file_perms;
 allow ccci_mdinit nvram_device:blk_file rw_file_perms;
 allow ccci_mdinit mtk_md_prop:property_service set;
 
-allow ccci_mdinit ctl_ccci_fsd_prop:property_service set;
-allow ccci_mdinit ctl_gsm0710muxd_prop:property_service set;
-allow ccci_mdinit ctl_rildaemon_prop:property_service set;
-allow ccci_mdinit radio_prop:property_service set;
-allow ccci_mdinit ril_mux_report_case_prop:property_service set;
+set_prop(ccci_mdinit, ctl_ccci_fsd_prop)
+set_prop(ccci_mdinit, ctl_gsm0710muxd_prop)
+set_prop(ccci_mdinit, ctl_rildaemon_prop)
+set_prop(ccci_mdinit, radio_prop)
+set_prop(ccci_mdinit, ril_mux_report_case_prop)
 
 allow ccci_mdinit mdlog_data_file:file r_file_perms;
 allow ccci_mdinit mdlog_data_file:dir r_dir_perms;
-
-unix_socket_connect(ccci_mdinit, property, init)

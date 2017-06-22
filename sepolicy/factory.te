@@ -61,6 +61,5 @@ allow factory mnld_prop:property_service set;
 # Other capabilities
 allow factory self:capability { dac_override net_admin net_raw sys_nice sys_time };
 allow factory self:process execmem;
-allow factory audiohal_prop:property_service set;
 
-unix_socket_connect(factory, property, init);
+set_prop(factory, audiohal_prop)
