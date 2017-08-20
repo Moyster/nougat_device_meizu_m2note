@@ -39,7 +39,6 @@ ro.zygote.preload.enable=0
 ro.kernel.zio=38,108,105,16
 ro.kernel.android.checkjni=0
 dalvik.vm.checkjni=false
-dalvik.vm.stack-trace-file=/data/anr/traces.txt
 
 # Gfx
 ro.opengles.version=196609
@@ -54,9 +53,6 @@ ro.mtk_agps_app=1
 ro.mtk_wlan_support=1
 ro.mtk_gps_support=1
 ro.product.first_api_level=22
-
-# Google assistant trick
-ro.opa.eligible_device=true
 
 # drm
 drm.service.enabled=true
