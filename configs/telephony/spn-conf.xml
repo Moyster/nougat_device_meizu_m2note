@@ -2,7 +2,7 @@
 <spnOverrides version="1">
 <spnOverride numeric="20201" spn="GR COSMOTE"/>
 <spnOverride numeric="20205" spn="vodafone GR"/>
-<spnOverride numeric="20209" spn="WIND GR"/>
+<spnOverride numeric="20209" spn="Q-TELECOM"/>
 <spnOverride numeric="20210" spn="WIND GR"/>
 <spnOverride numeric="20402" spn="Tele2"/>
 <spnOverride numeric="20404" spn="vodafone NL"/>
