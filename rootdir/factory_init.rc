@@ -445,21 +445,21 @@ service encrypt /system/bin/vdc --wait cryptfs enablecrypto inplace default
 ## Custom service area (START)
 # Please add custom service below
 
-service thermal_manager /system/bin/thermal_manager
+service thermal_manager /vendor/bin/thermal_manager
     user root
     oneshot
 
-service ccci_fsd /system/bin/ccci_fsd 0
+service ccci_fsd /vendor/bin/ccci_fsd 0
     user radio
     group radio system
     oneshot
 
-service ccci_mdinit /system/bin/ccci_mdinit 0
+service ccci_mdinit /vendor/bin/ccci_mdinit 0
     user system
     group radio system
     oneshot
 
-service nvram_daemon /system/bin/nvram_daemon
+service nvram_daemon /vendor/bin/nvram_daemon
     class main
     user root
     group system

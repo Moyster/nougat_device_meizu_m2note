@@ -32,12 +32,12 @@ on boot
 # Connectivity related services (Begin)
 #
 
-service wmtLoader /system/bin/wmt_loader
+service wmtLoader /vendor/bin/wmt_loader
     user root
     group root
     oneshot
     
-service conn_launcher /system/bin/6620_launcher -p /system/etc/firmware/
+service conn_launcher /vendor/bin/6620_launcher -p /vendor/firmware/
     user system
     group system
 

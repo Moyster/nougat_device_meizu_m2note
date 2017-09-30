@@ -414,9 +414,9 @@ service encrypt /system/bin/vdc --wait cryptfs enablecrypto inplace default
     # vold will set vold.decrypt to trigger_restart_framework (default
     # encryption)
 
-service meta_tst /system/bin/meta_tst
+service meta_tst /vendor/bin/meta_tst
 
-service nvram_daemon /system/bin/nvram_daemon
+service nvram_daemon /vendor/bin/nvram_daemon
     class main
     user root
     group system

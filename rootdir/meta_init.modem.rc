@@ -13,12 +13,12 @@ on post-fs
 
     chown radio radio /sys/kernel/ccci/boot
 
-service ccci_fsd /system/bin/ccci_fsd 0
+service ccci_fsd /vendor/bin/ccci_fsd 0
     user radio
     group radio system
     oneshot
 
-service ccci_mdinit /system/bin/ccci_mdinit 0
+service ccci_mdinit /vendor/bin/ccci_mdinit 0
     user system
     group radio system
     oneshot

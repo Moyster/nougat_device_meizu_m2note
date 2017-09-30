@@ -35,14 +35,14 @@ on post-fs-data
     # clear the sim switch flag
     setprop persist.radio.simswitch ""
 
-service gsm0710muxd /system/bin/gsm0710muxd -s /dev/ttyC0 -f 512 -n 8 -m basic
+service gsm0710muxd /vendor/bin/gsm0710muxd -s /dev/ttyC0 -f 512 -n 8 -m basic
     class core
     user root
     group radio cache inet misc
     disabled
     oneshot
 
-service muxreport-daemon /system/bin/muxreport
+service muxreport-daemon /vendor/bin/muxreport
     class core
     user radio
     group radio cache inet misc
@@ -50,10 +50,10 @@ service muxreport-daemon /system/bin/muxreport
     oneshot
 
 # disable rild
-service ril-daemon /system/bin/mtkrild
+service ril-daemon /vendor/bin/mtkrild
     disabled
 
-service ril-daemon-mtk /system/bin/mtkrild
+service ril-daemon-mtk /vendor/bin/mtkrild
     class core
     socket rild stream 660 root radio
     socket rild2 stream 660 root radio
@@ -79,19 +79,19 @@ service ril-daemon-mtk /system/bin/mtkrild
     oneshot
 
 
-service ccci_fsd /system/bin/ccci_fsd 0
+service ccci_fsd /vendor/bin/ccci_fsd 0
     user radio
     group radio system
     class core
     oneshot
 
-service ccci_mdinit /system/bin/ccci_mdinit 0
+service ccci_mdinit /vendor/bin/ccci_mdinit 0
     user system
     group radio system
     class core
     oneshot
 
-service terservice /system/bin/terservice
+service terservice /vendor/bin/terservice
     class core
     user radio
     group radio cache inet misc

@@ -20,7 +20,7 @@ on early-init
     write /sys/class/leds/lcd-backlight/trigger "backlight"
 
 on init
-    export LD_SHIM_LIBS "/system/lib/libmedia.so|libshim_snd.so:/system/lib64/libmedia.so|libshim_snd.so:/system/lib/liblog.so|libshim_xlog.so:/system/lib64/liblog.so|libshim_xlog.so:/system/lib/libui.so|libshim_ui.so:/system/lib64/libui.so|libshim_ui.so:/system/lib/libgui.so|libshim_gui.so:/system/lib64/libgui.so|libshim_gui.so:/system/bin/mtk_agpsd|libshim_agps.so"
+    export LD_SHIM_LIBS "/system/lib/libmedia.so|libshim_snd.so:/system/lib64/libmedia.so|libshim_snd.so:/system/lib/liblog.so|libshim_xlog.so:/system/lib64/liblog.so|libshim_xlog.so:/system/lib/libui.so|libshim_ui.so:/system/lib64/libui.so|libshim_ui.so:/system/lib/libgui.so|libshim_gui.so:/system/lib64/libgui.so|libshim_gui.so:/system/vendor/bin/mtk_agpsd|libshim_agps.so"
 
     # mount points
     mkdir /protect_f 0771 system system
@@ -705,23 +705,23 @@ on property:vold.decrypt=trigger_restart_framework
 on property:vold.decrypt=trigger_shutdown_framework
     start stop_modem
 
-service stop_modem /system/bin/md_ctrl 0
+service stop_modem /vendor/bin/md_ctrl 0
     class main
     disabled
     oneshot
 
-service start_modem /system/bin/md_ctrl 1
+service start_modem /vendor/bin/md_ctrl 1
     class main
     disabled
     oneshot
 
-service nvram_daemon /system/bin/nvram_daemon
+service nvram_daemon /vendor/bin/nvram_daemon
     class main
     user root
     group system
     oneshot
 
-service pq /system/bin/pq
+service pq /vendor/bin/pq
     class main
     user system
     group system graphics
@@ -771,7 +771,7 @@ service wpa_supplicant /system/bin/wpa_supplicant \
 #
 
 # GPS
-service agpsd /system/bin/mtk_agpsd
+service agpsd /vendor/bin/mtk_agpsd
     class main
     socket agpsd stream 660 gps system
     socket agpsd2 stream 660 gps inet
@@ -779,23 +779,23 @@ service agpsd /system/bin/mtk_agpsd
     user gps
     group gps radio inet sdcard_r sdcard_rw misc
 
-service wifi2agps /system/bin/wifi2agps
+service wifi2agps /vendor/bin/wifi2agps
     class main
     user wifi
     group gps inet
 
-service mnld /system/xbin/mnld
+service mnld /vendor/bin/mnld
     class main
     user gps
     group gps inet misc sdcard_rw sdcard_r media_rw system
     socket mnld stream 660 gps system
 
 # Sensors
-service msensord /system/bin/msensord
+service msensord /vendor/bin/msensord
     class main
     oneshot
 
-service akmd09911 /system/bin/akmd09911
+service akmd09911 /vendor/bin/akmd09911
     disabled
     user system
     group system
@@ -804,7 +804,7 @@ service akmd09911 /system/bin/akmd09911
 #
 # emsvr service (start)
 #
-service emsvr /system/bin/em_svr
+service emsvr /vendor/bin/em_svr
     disabled
     user system
     group system radio diag net_bt_stack
@@ -814,24 +814,24 @@ service emsvr /system/bin/em_svr
 #
 
 # Thermal
-service thermal_manager /system/bin/thermal_manager
+service thermal_manager /vendor/bin/thermal_manager
     class main
     user root
     group system
     oneshot
 
-service fuelgauged /system/bin/fuelgauged
+service fuelgauged /vendor/bin/fuelgauged
     class main
     user system
     group system
 
-service wmtLoader /system/bin/wmt_loader
+service wmtLoader /vendor/bin/wmt_loader
     user root
     group root
     class core
     oneshot
 
-service conn_launcher /system/bin/6620_launcher -p /system/etc/firmware/
+service conn_launcher /vendor/bin/6620_launcher -p /vendor/firmware/
     user system
     group system
     class core
