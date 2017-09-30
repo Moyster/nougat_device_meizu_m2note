@@ -3,3 +3,6 @@ allow priv_app guiext-server_service:service_manager find;
 
 # PQ
 allow priv_app pq_service:service_manager find;
+
+# dev_info
+allow priv_app sysfs_devinfo:file r_file_perms;

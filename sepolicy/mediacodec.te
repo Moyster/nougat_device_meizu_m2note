@@ -16,6 +16,10 @@ allow mediacodec proc_meminfo:file { getattr open read };
 allow mediacodec property_socket:sock_file write;
 allow mediacodec init:unix_stream_socket connectto;
 
+# omx
+allow mediacodec sysfs_ddr_type:file r_file_perms;
+allow mediacodec sysfs_membw:file { open rw_file_perms };
+
 # M4U
 allow mediacodec M4U_device_device:chr_file rw_file_perms;
 

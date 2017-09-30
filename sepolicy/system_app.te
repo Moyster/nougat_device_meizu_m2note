@@ -3,3 +3,6 @@ allow system_app perf_control_sysfs:file rw_file_perms;
 allow system_app smartwake_sysfs:file rw_file_perms;
 
 allow system_app em_svr:unix_stream_socket connectto;
+
+# dev_info
+allow system_app sysfs_devinfo:file r_file_perms;

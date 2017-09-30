@@ -1,0 +1,2 @@
+# dev_info
+allow bootanim sysfs_devinfo:file r_file_perms;

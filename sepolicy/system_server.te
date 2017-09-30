@@ -25,3 +25,6 @@ allow system_server guiext-server_service:service_manager find;
 
 # wlan0 hostap
 allow system_server wifi_data_file:sock_file unlink;
+
+# dev_info
+allow system_server sysfs_devinfo:file r_file_perms;
