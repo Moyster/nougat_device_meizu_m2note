@@ -1,7 +1,7 @@
 #
 # system.prop for M2 Note
 
-rild.libpath=/system/lib64/mtk-ril.so
+rild.libpath=/system/vendor/lib64/mtk-ril.so
 rild.libargs=-d /dev/ttyC0
 
 # Wifi
