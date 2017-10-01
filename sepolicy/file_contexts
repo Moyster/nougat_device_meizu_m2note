@@ -5,7 +5,7 @@
 /(system|system\/vendor|vendor)/bin/md_ctrl                                             u:object_r:md_ctrl_exec:s0
 /(system|system\/vendor|vendor)/bin/fuelgauged                                          u:object_r:fuelgauged_exec:s0
 /(system|system\/vendor|vendor)/bin/gsm0710muxd                                         u:object_r:gsm0710muxd_exec:s0
-/(system|system\/vendor|vendor)/xbin/mnld                                                u:object_r:mnld_exec:s0
+/(system|system\/vendor|vendor)/bin/mnld                                                u:object_r:mnld_exec:s0
 /(system|system\/vendor|vendor)/bin/muxreport                                           u:object_r:muxreport_exec:s0
 /(system|system\/vendor|vendor)/bin/msensord                                            u:object_r:msensord_exec:s0
 /(system|system\/vendor|vendor)/bin/akmd09911                                           u:object_r:akmd09911_exec:s0
