@@ -694,13 +694,11 @@ on property:vold.decrypt=trigger_reset_main
 on property:vold.decrypt=trigger_restart_min_framework
     start start_modem
     start msensord
-    start permission_check
 
 on property:vold.decrypt=trigger_restart_framework
     start nvram_daemon
     start start_modem
     start msensord
-    start permission_check
 
 on property:vold.decrypt=trigger_shutdown_framework
     start stop_modem

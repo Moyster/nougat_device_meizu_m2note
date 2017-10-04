@@ -64,15 +64,6 @@ subsystem adf
 /dev/log/*                0666   root       log
 /dev/log/ksystem          0600   root       log
 
-# the msm hw3d client device node is world writable/readable
-/dev/msm_hw3dc            0666   root       root
-
-# the DIAG device node is not world writable/readable.
-/dev/diag                 0660   system     qcom_diag
-
-# gpu driver for adreno200 is globally accessible
-/dev/kgsl                 0666   root       root
-
 # kms driver for drm based gpu
 /dev/dri/*                0666   root       graphics
 
@@ -88,7 +79,6 @@ subsystem adf
 /dev/rtc0                 0640   system     system
 /dev/tty0                 0660   root       system
 /dev/graphics/*           0660   system     graphics
-/dev/msm_hw3dm            0660   system     graphics
 /dev/input/*              0660   root       input
 /dev/eac                  0660   root       audio
 /dev/cam                  0660   root       camera
@@ -99,14 +89,6 @@ subsystem adf
 /dev/adsp/*               0660   system     audio
 /dev/snd/*                0660   system     audio
 /dev/mt9t013              0660   system     system
-/dev/msm_camera/*         0660   system     system
-/dev/akm8976_daemon       0640   compass    system
-/dev/akm8976_aot          0640   compass    system
-/dev/akm8973_daemon       0640   compass    system
-/dev/akm8973_aot          0640   compass    system
-/dev/bma150               0640   compass    system
-/dev/cm3602               0640   compass    system
-/dev/akm8976_pffd         0640   compass    system
 /dev/lightsensor          0640   system     system
 /dev/msm_pcm_out*         0660   system     audio
 /dev/msm_pcm_in*          0660   system     audio

@@ -38,10 +38,10 @@ loglevel 5
     symlink /dev/block/platform/mtk-msdc.0/by-name/kb /dev/kb
     symlink /dev/block/platform/mtk-msdc.0/by-name/dkb /dev/dkb 
     symlink /dev/block/platform/mtk-msdc.0/by-name/seccfg /dev/seccfg
-    symlink /dev/block/platform/mtk-msdc.0/by-name/proinfo /dev/pro_info 
-    symlink /dev/block/platform/mtk-msdc.0/by-name/nvram /dev/nvram   
+    symlink /dev/block/platform/mtk-msdc.0/by-name/proinfo /dev/pro_info
+    symlink /dev/block/platform/mtk-msdc.0/by-name/nvram /dev/nvram
     symlink /dev/block/platform/mtk-msdc.0/by-name/para /dev/misc
-    symlink /dev/block/platform/mtk-msdc.0/by-name/logo /dev/logo 
+    symlink /dev/block/platform/mtk-msdc.0/by-name/logo /dev/logo
 
 
 # Link /vendor to /system/vendor for devices without a vendor partition.
@@ -129,7 +129,7 @@ on fs
     exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/para
     exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/logo
     exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/logo			
-    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/para					
+    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/para
     write /proc/bootprof "INIT:Mount_END"
 
 on post-fs
@@ -319,7 +319,7 @@ on post-fs-data
     chown system radio /dev/ttyGS3
     chmod 0660 /dev/ttyGS3
 
-## Custom pos_fs area (END) 
+## Custom pos_fs area (END)
 
     # Separate location for storing security policy files on data
     mkdir /data/security 0711 system system

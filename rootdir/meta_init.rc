@@ -277,7 +277,6 @@ on post-fs-data
     # RTC
     mkdir /data/misc/rtc 0770 system system
 
-
     # M4U
     #insmod /system/lib/modules/m4u.ko
     #mknod /dev/M4U_device c 188 0
@@ -296,10 +295,6 @@ on post-fs-data
     # device info interface
     chmod 0440 /dev/devmap
     chown root system /dev/devmap
-
-
-    #change partition permission
-    exec /system/etc/partition_permission.sh
 
     chmod 0666 /dev/exm0
 
@@ -428,14 +423,6 @@ service debuggerd /system/bin/debuggerd
 service debuggerd64 /system/bin/debuggerd64
     class main
 
-service mobile_log_d /system/bin/mobile_log_d
-    class main
-
-on property:ro.boot.mblogenable=0
-    stop mobile_log_d
-
-on property:ro.boot.mblogenable=1
-    start mobile_log_d
 
 #mass_storage,adb,acm
 on property:ro.boot.usbconfig=0
