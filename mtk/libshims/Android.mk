@@ -10,6 +10,7 @@ LOCAL_SRC_FILES := \
 
 LOCAL_SHARED_LIBRARIES := liblog libicuuc libssl libcrypto
 LOCAL_MODULE := libshim_agps
+LOCAL_CFLAGS := -O3 -Wno-unused-variable -Wno-unused-parameter
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
@@ -23,6 +24,7 @@ LOCAL_SRC_FILES := ui/mtk_ui.cpp
 
 LOCAL_SHARED_LIBRARIES := libbinder libui
 LOCAL_MODULE := libshim_ui
+LOCAL_CFLAGS := -O3 -Wno-unused-variable -Wno-unused-parameter
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
@@ -36,6 +38,7 @@ LOCAL_SRC_FILES := \
 
 LOCAL_SHARED_LIBRARIES := libbinder libgui liblog libui libutils
 LOCAL_MODULE := libshim_gui
+LOCAL_CFLAGS := -O3 -Wno-unused-variable -Wno-unused-parameter
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
@@ -47,6 +50,7 @@ LOCAL_SRC_FILES := audio/mtk_audio.cpp
 
 LOCAL_SHARED_LIBRARIES := libbinder libmedia
 LOCAL_MODULE := libshim_snd
+LOCAL_CFLAGS := -O3 -Wno-unused-variable -Wno-unused-parameter
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
@@ -58,5 +62,6 @@ LOCAL_SRC_FILES := xlog.c
 
 LOCAL_SHARED_LIBRARIES := liblog
 LOCAL_MODULE := libshim_xlog
+LOCAL_CFLAGS := -O3 -Wno-unused-variable -Wno-unused-parameter
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
