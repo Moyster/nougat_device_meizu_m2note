@@ -130,21 +130,6 @@ subsystem adf
 /dev/pvrsrvkm             0666   root       root
 /dev/pvr_sync             0666   root       root
 
-/sys/devices/platform/leds-mt65xx/leds/green   delay_on      0664  system   system
-/sys/devices/platform/leds-mt65xx/leds/green   delay_off      0664  system   system
-/sys/devices/platform/leds-mt65xx/leds/red   delay_on      0664  system   system
-/sys/devices/platform/leds-mt65xx/leds/red   delay_off      0664  system   system
-/sys/devices/platform/leds-mt65xx/leds/blue   delay_on      0664  system   system
-/sys/devices/platform/leds-mt65xx/leds/blue   delay_off      0664  system   system
-/sys/devices/platform/leds-mt65xx/leds/yellow   delay_on      0664  system   system
-/sys/devices/platform/leds-mt65xx/leds/yellow   delay_off      0664  system   system
-/sys/devices/platform/leds-mt65xx/leds/white   delay_on      0664  system   system
-/sys/devices/platform/leds-mt65xx/leds/white   delay_off      0664  system   system
-/sys/devices/platform/leds-mt65xx/leds/cyan   delay_on      0664  system   system
-/sys/devices/platform/leds-mt65xx/leds/cyan   delay_off      0664  system   system
-/sys/devices/platform/leds-mt65xx/leds/violet   delay_on      0664  system   system
-/sys/devices/platform/leds-mt65xx/leds/violet   delay_off      0664  system   system
-
 # GPIO
 /dev/mtgpio	0600	radio	root
 

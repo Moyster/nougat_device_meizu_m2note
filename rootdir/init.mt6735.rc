@@ -614,11 +614,6 @@ on boot
     chown root   radio  /sys/class/leds/lcd-backlight/div
     chown system system /sys/class/leds/lcd-backlight/trigger
     chown system system /sys/class/leds/button-backlight/trigger
-    chown system system /sys/class/leds/keyboard-backlight/trigger
-    chown system system /sys/class/leds/jogball-backlight/trigger
-    chown system system /sys/class/leds/red/trigger
-    chown system system /sys/class/leds/green/trigger
-    chown system system /sys/class/leds/blue/trigger
     # Add by Meizu BSP@YinShunQing
     chown system system /sys/class/leds/button-backlight/oneshot_blink
 
