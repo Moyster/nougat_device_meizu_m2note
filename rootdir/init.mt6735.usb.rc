@@ -1,7 +1,7 @@
 on boot
     setprop sys.usb.vid 2A45
     write /sys/class/android_usb/android0/iManufacturer Meizu
-    write /sys/class/android_usb/android0/iProduct M81
+    write /sys/class/android_usb/android0/iProduct M2Note
     write /sys/class/android_usb/android0/iSerial ${ro.serialno}
     write /sys/class/android_usb/android0/f_rndis/wceis 1
     write /sys/class/android_usb/android0/f_rndis/manufacturer Meizu
@@ -312,66 +312,7 @@ on property:sys.usb.config=ptp,mass_storage,adb,acm
     start adbd
     setprop sys.usb.state ${sys.usb.config}
 
-# duplicate of init.usb.rc
-
-#28. USB accessory configuration
-#on property:sys.usb.config=accessory
-#    write /sys/class/android_usb/android0/enable 0
-#    write /sys/class/android_usb/android0/idVendor 18d1
-#    write /sys/class/android_usb/android0/idProduct 2d00
-#    write /sys/class/android_usb/android0/functions ${sys.usb.config}
-#    write /sys/class/android_usb/android0/enable 1
-#    setprop sys.usb.state ${sys.usb.config}
-
-#39. USB accessory configuration, with adb
-#on property:sys.usb.config=accessory,adb
-#    write /sys/class/android_usb/android0/enable 0
-#    write /sys/class/android_usb/android0/idVendor 18d1
-#    write /sys/class/android_usb/android0/idProduct 2d01
-#    write /sys/class/android_usb/android0/functions ${sys.usb.config}
-#    write /sys/class/android_usb/android0/enable 1
-#    start adbd
-#    setprop sys.usb.state ${sys.usb.config}
-
-#30. audio accessory configuration
-#on property:sys.usb.config=audio_source
-#    write /sys/class/android_usb/android0/enable 0
-#    write /sys/class/android_usb/android0/idVendor 18d1
-#    write /sys/class/android_usb/android0/idProduct 2d02
-#    write /sys/class/android_usb/android0/functions ${sys.usb.config}
-#    write /sys/class/android_usb/android0/enable 1
-#    setprop sys.usb.state ${sys.usb.config}
-
-#31. audio accessory configuration, with adb
-#on property:sys.usb.config=audio_source,adb
-#    write /sys/class/android_usb/android0/enable 0
-#    write /sys/class/android_usb/android0/idVendor 18d1
-#    write /sys/class/android_usb/android0/idProduct 2d03
-#    write /sys/class/android_usb/android0/functions ${sys.usb.config}
-#    write /sys/class/android_usb/android0/enable 1
-#    start adbd
-#    setprop sys.usb.state ${sys.usb.config}
-
-#32. USB and audio accessory configuration
-#on property:sys.usb.config=accessory,audio_source
-#    write /sys/class/android_usb/android0/enable 0
-#    write /sys/class/android_usb/android0/idVendor 18d1
-#    write /sys/class/android_usb/android0/idProduct 2d04
-#    write /sys/class/android_usb/android0/functions ${sys.usb.config}
-#    write /sys/class/android_usb/android0/enable 1
-#    setprop sys.usb.state ${sys.usb.config}
-
-#33. USB and audio accessory configuration, with adb
-#on property:sys.usb.config=accessory,audio_source,adb
-#    write /sys/class/android_usb/android0/enable 0
-#    write /sys/class/android_usb/android0/idVendor 18d1
-#    write /sys/class/android_usb/android0/idProduct 2d05
-#    write /sys/class/android_usb/android0/functions ${sys.usb.config}
-#    write /sys/class/android_usb/android0/enable 1
-#    start adbd
-#    setprop sys.usb.state ${sys.usb.config}
-
-#34.USB Charging Only configuration
+#28.USB Charging Only configuration
 on property:sys.usb.config=charging
     setprop sys.usb.state ${sys.usb.config}
     setprop sys.usb.charging yes
@@ -387,7 +328,7 @@ on property:sys.usb.charging=yes
 on property:sys.usb.charging=no
     write /sys/devices/platform/mt_usb/cmode 1
 
-#35.USB BICR configuration(mass_storage)
+#29.USB BICR configuration(mass_storage)
 on property:sys.usb.config=bicr
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor ${sys.usb.vid}
@@ -398,7 +339,7 @@ on property:sys.usb.config=bicr
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
 
-#36.USB BICR configuration(mass_storage+adb)
+#30.USB BICR configuration(mass_storage+adb)
 on property:sys.usb.config=bicr,adb
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor ${sys.usb.vid}
@@ -410,7 +351,7 @@ on property:sys.usb.config=bicr,adb
     start adbd
     setprop sys.usb.state ${sys.usb.config}
 
-#37.USB BICR configuration(mass_storage+adb+acm)
+#31.USB BICR configuration(mass_storage+adb+acm)
 on property:sys.usb.config=bicr,adb,acm
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor ${sys.usb.vid}
@@ -423,7 +364,7 @@ on property:sys.usb.config=bicr,adb,acm
     start adbd
     setprop sys.usb.state ${sys.usb.config}
 
-#38.USB BICR configuration(mass_storage+acm)
+#32.USB BICR configuration(mass_storage+acm)
 on property:sys.usb.config=bicr,acm
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor ${sys.usb.vid}
@@ -435,7 +376,7 @@ on property:sys.usb.config=bicr,acm
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
 
-#39.eem
+#33.eem
 on property:sys.usb.config=eem
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor ${sys.usb.vid}
@@ -445,7 +386,7 @@ on property:sys.usb.config=eem
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
 
-#40.eem,acm
+#34.eem,acm
 on property:sys.usb.config=eem,acm
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor ${sys.usb.vid}
@@ -455,7 +396,7 @@ on property:sys.usb.config=eem,acm
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
 
-#41.eem,adb
+#35.eem,adb
 on property:sys.usb.config=eem,adb
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor ${sys.usb.vid}
@@ -465,7 +406,7 @@ on property:sys.usb.config=eem,adb
     start adbd
     setprop sys.usb.state ${sys.usb.config}
 
-#42.eem,adb,acm
+#36.eem,adb,acm
 on property:sys.usb.config=eem,adb,acm
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor ${sys.usb.vid}
@@ -560,7 +501,7 @@ on property:sys.usb.config=rndis,via_bypass,adb,acm
     start adbd
     setprop sys.usb.state ${sys.usb.config}
 
-#43.acm third port for bt
+#37.acm third port for bt
 on property:sys.usb.config=acm_third
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor ${sys.usb.vid}
@@ -571,7 +512,7 @@ on property:sys.usb.config=acm_third
     start adbd
     setprop sys.usb.state ${sys.usb.config}
 
-#44.comport --> /dev/ttyGS3
+#38.comport --> /dev/ttyGS3
 on property:sys.usb.config=gs3
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor ${sys.usb.vid}
@@ -618,8 +559,6 @@ on property:sys.usb.config=gs1gs3,dual_acm
     start adbd
     setprop sys.usb.state ${sys.usb.config}
     setprop sys.usb.acm_idx 1,2,4
-
-###############################################
 
 on property:sys.usb.config=mass_storage,dual_acm
     write /sys/class/android_usb/android0/enable 0

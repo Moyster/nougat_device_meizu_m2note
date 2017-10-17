@@ -451,7 +451,7 @@ struct audio_stream_in {
      * ready/available, or -EINVAL if the arguments are null or otherwise invalid.
      */
     /* int (*get_capture_position)(const struct audio_stream_in *stream,
-                                int64_t *frames, int64_t *time); */
+                                int64_t *frames, int64_t *time); */ //Doesn't it couse compilling error? Our audio hal is not supporting it so should always return 0.
 };
 typedef struct audio_stream_in audio_stream_in_t;
 

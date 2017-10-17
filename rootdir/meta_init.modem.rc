@@ -5,11 +5,10 @@
 #
 
 on post-fs
-
     write /proc/bootprof "post-fs: on meta modem start"
 
     # Modem related device nodes
-    mkdir /data/nvram/md  0770 root system
+    mkdir /data/nvram/md 0770 root system
 
     chown radio radio /sys/kernel/ccci/boot
 
@@ -24,8 +23,6 @@ service ccci_mdinit /vendor/bin/ccci_mdinit 0
     oneshot
 
 on post-fs-data
-
-#SeLinux
     mkdir /data/ccci_cfg 0770 system radio
     restorecon /data/ccci_cfg
     restorecon_recursive /protect_f

@@ -16,7 +16,7 @@ TW_USE_TOOLBOX := true
 TW_INCLUDE_NTFS_3G := true
 TW_EXCLUDE_SUPERSU := true
 
-#M2Note: Flip the screen 180deg
+# M2 Note: Flip the screen 180deg
 BOARD_HAS_FLIPPED_SCREEN := true
 BOARD_USE_FRAMEBUFFER_ALPHA_CHANNEL := true
 TARGET_DISABLE_TRIPLE_BUFFERING := false
@@ -43,7 +43,6 @@ TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 
 TW_INCLUDE_L_CRYPTO := true
-
 else
 # CWM
 BOARD_RECOVERY_SWIPE := true

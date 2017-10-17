@@ -45,6 +45,7 @@ public class DozeSettings extends SettingsDrawerActivity {
             onBackPressed();
             return true;
         }
+
         return false;
     }
 }

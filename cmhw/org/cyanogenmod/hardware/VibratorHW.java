@@ -43,24 +43,24 @@ public class VibratorHW {
         return true;
     }
 
-    public static boolean setIntensity(int intensity)  {
+    public static boolean setIntensity(int intensity) {
         return FileUtils.writeLine(INTENSITY_FILE, Integer.toString(intensity));
     }
 
-    public static int getMaxIntensity()  {
+    public static int getMaxIntensity() {
         return 7;
     }
 
-    public static int getMinIntensity()  {
+    public static int getMinIntensity() {
         return 0;
     }
 
-    public static int getWarningThreshold()  {
+    public static int getWarningThreshold() {
         // actually this is rather arbitrary
         return 7;
     }
 
-    public static int getCurIntensity()  {
+    public static int getCurIntensity() {
         final String result = FileUtils.readOneLine(INTENSITY_FILE);
         if (result == null) {
             return 5;
@@ -73,7 +73,7 @@ public class VibratorHW {
         }
     }
 
-    public static int getDefaultIntensity()  {
+    public static int getDefaultIntensity() {
         return 5;
     }
 }

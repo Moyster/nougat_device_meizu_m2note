@@ -1,17 +1,18 @@
+
 #
-# system.prop for M2 Note
+# M2 Note Specific Configs
+#
 
-rild.libpath=/system/vendor/lib64/mtk-ril.so
-rild.libargs=-d /dev/ttyC0
-
-# Wifi
-wifi.interface=wlan0
-ro.mediatek.wlan.wsc=1
+# Wi-Fi
+ro.mtk_wlan_support=1
 ro.mediatek.wlan.p2p=1
-mediatek.wlan.ctia=0
-
-wifi.tethering.interface=wlan0
+ro.mediatek.wlan.wsc=1
 wifi.direct.interface=p2p0
+wifi.interface=wlan0
+wifi.tethering.interface=wlan0
+mediatek.wlan.chip=CONSYS_MT6735
+mediatek.wlan.module.postfix=_consys_mt6735
+mediatek.wlan.ctia=0
 
 # Camera
 ro.camera.sound.forced=0
@@ -28,13 +29,14 @@ ro.sys.usb.bicr=yes
 ro.sys.usb.charging.only=yes
 ro.sys.usb.storage.type=mtp,mass_storage
 
-# SD
+# SDCardFS
 ro.sys.sdcardfs=true
 
-# audio
+# Audio
 ro.audio.silent=0
 persist.audio.dirac.speaker=true
 
+# Kernel
 ro.zygote.preload.enable=0
 ro.kernel.zio=38,108,105,16
 ro.kernel.android.checkjni=0
@@ -44,59 +46,58 @@ dalvik.vm.checkjni=false
 ro.opengles.version=196609
 debug.hwui.render_dirty_regions=false
 
-# device
+# Device
 ro.sf.lcd_density=480
 ro.sf.hwrotation=180
-fmradio.driver.enable=0
-ro.mtk_bt_support=1
-ro.mtk_agps_app=1
-ro.mtk_wlan_support=1
-ro.mtk_gps_support=1
+ro.mediatek.chip_ver=S01
+ro.mediatek.platform=MT6735
+ro.mediatek.project.path=device/meizu/meizu6753_65cn_l1
+ro.mediatek.version.branch=L1.MP3.EE.WFC.DEV
+ro.mediatek.version.release=ALPS.L1.MP3.V2.95_MEIZU6753.65CN.L1
+ro.product.perf.config=M81-l1_base
 ro.product.first_api_level=22
 
-# drm
+# FM Radio
+fmradio.driver.enable=0
+
+# Connectivity
+ro.mtk_bt_support=1
+ro.mtk_agps_app=1
+ro.mtk_gps_support=1
+
+# DRM
 drm.service.enabled=true
-ro.mtk_oma_drm_support=1
 ro.mtk_cta_drm_support=1
+ro.mtk_oma_drm_support=1
 ro.mtk_widevine_drm_l3_support=1
 
 # RIL
 ro.telephony.ril_class=MediaTekRIL
 ro.telephony.ril.config=fakeiccid
-
 ro.telephony.sim.count=2
+bgw.current3gband=0
+persist.md.perm.checked=1
+persist.mtk.wcn.combo.chipid=-1
+persist.radio.fd.counter=15
+persist.radio.fd.off.counter=5
+persist.radio.fd.off.r8.counter=5
+persist.radio.fd.r8.counter=15
 persist.radio.multisim.config=dsds
 ril.current.share_modem=2
 ril.external.md=0
 ril.telephony.mode=0
-persist.radio.fd.counter=15
-persist.radio.fd.off.counter=5
-persist.radio.fd.r8.counter=15
-persist.radio.fd.off.r8.counter=5
-ro.mtk_gemini_support=1
+ro.mtk_cta_set=1
 ro.mtk_enable_md1=1
 ro.mtk_flight_mode_power_off_md=1
-ro.mtk_sim_hot_swap=1
-ro.mtk_world_phone=1
-ro.mtk_cta_set=1
+ro.mtk_gemini_support=1
 ro.mtk_lte_support=1
 ro.mtk_rild_read_imsi=1
-persist.md.perm.checked=1
-
-bgw.current3gband=0
-persist.mtk.wcn.combo.chipid=-1
+ro.mtk_sim_hot_swap=1
+ro.mtk_world_phone=1
+rild.libargs=-d /dev/ttyC0
+rild.libpath=/system/vendor/lib64/mtk-ril.so
 wfd.dummy.enable=1
 
 # ClearMotion
 persist.sys.display.clearMotion=1
 ro.mtk_clearmotion_support=1
-
-# SoC
-ro.mediatek.chip_ver=S01
-ro.mediatek.platform=MT6735
-mediatek.wlan.chip=CONSYS_MT6735
-mediatek.wlan.module.postfix=_consys_mt6735
-ro.mediatek.version.release=ALPS.L1.MP3.V2.95_MEIZU6753.65CN.L1
-ro.mediatek.version.branch=L1.MP3.EE.WFC.DEV
-ro.mediatek.project.path=device/meizu/meizu6753_65cn_l1
-ro.product.perf.config=M81-l1_base

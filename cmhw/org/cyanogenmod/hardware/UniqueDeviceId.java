@@ -22,6 +22,7 @@ import org.cyanogenmod.internal.util.FileUtils;
  * Generate a unique but deterministic ID for this hardware, based on unchangeable
  * hardware serial numbers.
  */
+
 public class UniqueDeviceId {
     private static final int TYPE_MMC0_CID = 0;
 

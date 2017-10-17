@@ -38,6 +38,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * devices which have a /persist partition (recent QCOM devices fit this
  * criteria).
  */
+
 public class PersistentStorage {
 
     public static final int MAX_KEY_LEN = 64;

@@ -70,7 +70,6 @@ public class TiltSensor implements SensorEventListener {
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        /* Empty */
     }
 
     protected void enable() {

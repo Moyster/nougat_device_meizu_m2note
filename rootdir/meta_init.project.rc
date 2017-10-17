@@ -1,7 +1,4 @@
 on post-fs
-#
-# Connectivity related modules and character device nodes (Begin)
-#
     # for 662x_launcher
     chmod 0660 /dev/ttyMT2
     chown system system /dev/ttyMT2
@@ -21,26 +18,13 @@ on post-fs
     chmod 0660 /dev/stpbt
     chown bluetooth radio /dev/stpbt
 
-#
-# Connectivity related modules and character device nodes (Ends)
-#
-
 on boot
-
-
-#
-# Connectivity related services (Begin)
-#
 
 service wmtLoader /vendor/bin/wmt_loader
     user root
     group root
     oneshot
-    
+
 service conn_launcher /vendor/bin/6620_launcher -p /vendor/firmware/
     user system
     group system
-
-#
-# Connectivity related services (End)
-#

@@ -17,6 +17,7 @@
 package org.cyanogenmod.hardware;
 
 import android.util.Log;
+
 /*
  * Disable capacitive keys
  *
@@ -34,7 +35,9 @@ public class KeyDisabler {
      * Real implementations must, of course, return true
      */
 
-    public static boolean isSupported() { return true; }
+    public static boolean isSupported() {
+        return true;
+    }
 
     /*
      * Are the keys currently blocked?
@@ -54,5 +57,4 @@ public class KeyDisabler {
         Log.i("KeyDisabler", "setActive " + state);
         return isActive;
     }
-
 }

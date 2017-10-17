@@ -33,5 +33,4 @@ public class BootCompletedReceiver extends BroadcastReceiver {
             Utils.startService(context);
         }
     }
-
 }

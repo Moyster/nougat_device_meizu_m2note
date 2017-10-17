@@ -81,8 +81,9 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final String ACTION_DISMISS_KEYGUARD =
             "com.android.keyguard.action.DISMISS_KEYGUARD_SECURELY";
 
-    // M2Note gesture codes
+    // M2 Note gesture codes
     public static final int DOUBLE_TAP = 0xA0; //160
+
     public static final int SWIPE_X_LEFT = 0xB0; //176
     public static final int SWIPE_X_RIGHT = 0xB1;
     public static final int SWIPE_Y_UP = 0xB2;
@@ -446,4 +447,3 @@ public class KeyHandler implements DeviceKeyHandler {
         return Integer.valueOf(readSingleLine(f));
     }
 }
-

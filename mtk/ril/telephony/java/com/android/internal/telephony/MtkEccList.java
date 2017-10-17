@@ -76,9 +76,11 @@ public class MtkEccList extends PhoneNumberUtils {
 	public void setEcc(String strEcc) {
 	    mEcc = strEcc;
 	}
+
 	public void setCategory(String strCategory) {
 	    mCategory = strCategory;
 	}
+
 	public void setCondition(String strCondition) {
 	    mCondition = strCondition;
 	}
@@ -86,9 +88,11 @@ public class MtkEccList extends PhoneNumberUtils {
 	public String getEcc() {
 	    return mEcc;
 	}
+
 	public String getCategory() {
 	    return mCategory;
 	}
+
 	public String getCondition() {
 	    return mCondition;
 	}
@@ -212,6 +216,7 @@ public class MtkEccList extends PhoneNumberUtils {
 		}
 	    }
 	}
+
 	for (String emergencyNum : mHashMapForNetworkEccCategory.keySet()) {
 	    numberPlus = emergencyNum + "+";
 	    if (emergencyNum.equals(number)
@@ -220,6 +225,7 @@ public class MtkEccList extends PhoneNumberUtils {
 		return true;
 	    }
 	}
+
 	// 2. Check ECCs stored at SIMs
 	// Read from SIM1
 	String numbers = SystemProperties.get("ril.ecclist");
@@ -235,6 +241,7 @@ public class MtkEccList extends PhoneNumberUtils {
 		    return true;
 		}
 	    }
+
 	    bSIMInserted = true;
 	}
 
@@ -252,6 +259,7 @@ public class MtkEccList extends PhoneNumberUtils {
 		    return true;
 		}
 	    }
+
 	    bSIMInserted = true;
 	}
 
@@ -285,6 +293,7 @@ public class MtkEccList extends PhoneNumberUtils {
 		}
 	    }
 	}
+
 	Rlog.d(LOG_TAG, "[isEmergencyNumberExt] no match");
 	return false;
     }
@@ -356,6 +365,7 @@ public class MtkEccList extends PhoneNumberUtils {
 	    if (!TextUtils.isEmpty(emergencyNum))
 		sim1List.add(emergencyNum);
 	}
+
 	// dedupe
 	sim1List.removeAll(fixedList);
 	sim1List.addAll(fixedList);
@@ -363,6 +373,7 @@ public class MtkEccList extends PhoneNumberUtils {
 	    sim1List.removeAll(fixedListNoSim);
 	    sim1List.addAll(fixedListNoSim);
 	}
+
 	SystemProperties.set("ril.ecclist",TextUtils.join(",", sim1List));
 
 	// Read from SIM2
@@ -371,6 +382,7 @@ public class MtkEccList extends PhoneNumberUtils {
 	    if (!TextUtils.isEmpty(emergencyNum))
 		sim2List.add(emergencyNum);
 	}
+
 	// dedupe
 	sim2List.removeAll(fixedList);
 	sim2List.addAll(fixedList);
@@ -378,8 +390,7 @@ public class MtkEccList extends PhoneNumberUtils {
 	    sim2List.removeAll(fixedListNoSim);
 	    sim2List.addAll(fixedListNoSim);
 	}
+
 	SystemProperties.set("ril.ecclist1",TextUtils.join(",", sim2List));
-
     }
-
 }

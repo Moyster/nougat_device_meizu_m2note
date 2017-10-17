@@ -63,6 +63,7 @@ public final class Utils {
         } else {
             stopService(context);
         }
+
         return dozeEnabled;
     }
 
