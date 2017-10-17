@@ -45,6 +45,7 @@ public class DozeReceiver extends RemotePreferenceUpdater {
         if (DOZE_CATEGORY_KEY.equals(key)) {
             return DozeSettingsFragment.getDozeSummary(context);
         }
+
         return null;
     }
 

@@ -1,8 +1,7 @@
-# cameraserver with system group
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/rootdir/init/cameraserver.rc:system/etc/init/cameraserver.rc 
+# Cameraserver with media group
+PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/init/cameraserver.rc:system/etc/init/cameraserver.rc 
 
-# device rootdir
+# Rootdir
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/rootdir/factory_init.project.rc:root/factory_init.project.rc \
     $(DEVICE_PATH)/rootdir/factory_init.rc:root/factory_init.rc \
@@ -17,6 +16,5 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/rootdir/ueventd.mt6735.rc:root/ueventd.mt6735.rc \
     $(DEVICE_PATH)/rootdir/init.recovery.mt6735.rc:root/init.recovery.mt6735.rc
 
-# hack for TWRP
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
+# TWRP
+PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/twrp.fstab:recovery/root/etc/twrp.fstab

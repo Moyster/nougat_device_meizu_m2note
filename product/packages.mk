@@ -4,7 +4,7 @@ PRODUCT_PACKAGES += \
     Torch \
     Snap
 
-# Mtk symbols & shim
+# Shim Libs
 PRODUCT_PACKAGES += \
     libshim_agps \
     libshim_asc \
@@ -13,11 +13,10 @@ PRODUCT_PACKAGES += \
     libshim_ui \
     libshim_xlog
 
-# libstlport
-PRODUCT_PACKAGES += libstlport
-
-# Ion
-PRODUCT_PACKAGES += libion
+# stlport and ion
+PRODUCT_PACKAGES += \
+    libstlport \
+    libion
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -31,8 +30,6 @@ PRODUCT_PACKAGES += \
     libtinyalsa \
     libtinycompress \
     libtinyxml
-
-#PRODUCT_PACKAGES += libtinymix
 
 # GPS
 PRODUCT_PACKAGES += \

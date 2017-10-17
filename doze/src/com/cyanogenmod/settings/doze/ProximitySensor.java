@@ -60,22 +60,19 @@ public class ProximitySensor implements SensorEventListener {
     private boolean shouldPulse(long timestamp) {
         long delta = timestamp - mInPocketTime;
 
-        if (Utils.handwaveGestureEnabled(mContext)
-                    && Utils.pocketGestureEnabled(mContext)) {
+        if (Utils.handwaveGestureEnabled(mContext) && Utils.pocketGestureEnabled(mContext)) {
             return true;
-        } else if (Utils.handwaveGestureEnabled(mContext)
-                    && !Utils.pocketGestureEnabled(mContext)) {
+        } else if (Utils.handwaveGestureEnabled(mContext) && !Utils.pocketGestureEnabled(mContext)) {
             return delta < POCKET_DELTA_NS;
-        } else if (!Utils.handwaveGestureEnabled(mContext)
-                    && Utils.pocketGestureEnabled(mContext)) {
+        } else if (!Utils.handwaveGestureEnabled(mContext) && Utils.pocketGestureEnabled(mContext)) {
             return delta >= POCKET_DELTA_NS;
         }
+
         return false;
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        /* Empty */
     }
 
     protected void enable() {

@@ -1,5 +1,5 @@
 subsystem adf
-	devname uevent_devname
+    devname uevent_devname
 
 /dev/null                 0666   root       root
 /dev/zero                 0666   root       root
@@ -10,12 +10,13 @@ subsystem adf
 /dev/urandom              0666   root       root
 /dev/erandom              0666   root       root
 /dev/frandom              0666   root       root
+
 # Make HW RNG readable by group system to let EntropyMixer read it.
 /dev/hw_random            0440   root       system
 /dev/ashmem               0666   root       root
 /dev/binder               0666   root       root
 
-# change partition permission
+# Change partition permission
 /dev/block/mmcblk0                                              0660    root    system
 /dev/block/mmcblk0boot0                                         0660    root    system
 /dev/block/mmcblk0boot1                                         0660    root    system
@@ -31,27 +32,27 @@ subsystem adf
 /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/frp       0660    root    system
 
 # OTP
-/dev/otp                  0660  system      system
+/dev/otp                  0660  system     system
 
 # Connectivity
-/dev/stpwmt              0660  system     system
-/dev/wmtdetect           0660  system     system
+/dev/stpwmt               0660  system     system
+/dev/wmtdetect            0660  system     system
 
-# BT
-/dev/stpbt               0660  bluetooth  net_bt_stack
+# Bluetooth
+/dev/stpbt                0660  bluetooth  net_bt_stack
 
 # GPS
-/dev/stpgps              0660  gps        gps
-/dev/gps                 0660  gps        system
+/dev/stpgps               0660  gps        gps
+/dev/gps                  0660  gps        system
 
-# WIFI
-/dev/wmtWifi             0660  system     system
+# Wi-Fi
+/dev/wmtWifi              0660  system     system
 
 # MTK BTIF driver
-/dev/btif                 0600  system system
+/dev/btif                 0600  system     system
 
-# add the read write right of ttyUSB*
-/dev/bus/usb/*     	  0660   root       usb
+# Add the read write right of ttyUSB*
+/dev/bus/usb/*     	      0660   root       usb
 /dev/ttyUSB0              0660   radio      radio
 /dev/ttyUSB1              0660   radio      radio
 /dev/ttyUSB2              0660   radio      radio
@@ -64,10 +65,10 @@ subsystem adf
 /dev/log/*                0666   root       log
 /dev/log/ksystem          0600   root       log
 
-# kms driver for drm based gpu
+# Kms driver for drm based gpu
 /dev/dri/*                0666   root       graphics
 
-# these should not be world writable
+# These should not be world writable
 /dev/diag                 0660   radio      radio
 /dev/diag_arm9            0660   radio      radio
 /dev/android_adb          0660   adb        adb
@@ -131,32 +132,30 @@ subsystem adf
 /dev/pvr_sync             0666   root       root
 
 # GPIO
-/dev/mtgpio	0600	radio	root
+/dev/mtgpio	              0600   radio      root
 
 # FOR VIA MODEM
-/dev/ttySDIO*	0660	radio    sdcard_rw
-/dev/ttyRB*     0660    radio    radio
+/dev/ttySDIO*             0660   radio      sdcard_rw
+/dev/ttyRB*               0660   radio      radio
 
 # Mali node
-/dev/mali               0666  system graphics
+/dev/mali                 0666   system     graphics
 
 # Change ION driver permission
 /dev/ion                  0666   system     graphics
 
-# touch
-/dev/touch              0660   root  system
-/dev/hotknot            0660   root  system
+# Touch
+/dev/touch                0660   root       system
+/dev/hotknot              0660   root       system
 
-# hang_detect
-/dev/RT_Monitor         0600   system  system
-/dev/kick_powerkey      0600   system  system
+# Hang_detect
+/dev/RT_Monitor           0600   system     system
+/dev/kick_powerkey        0600   system     system
 
 # MTK In-House TEE
-/dev/ttyACM0		0660   radio   radio
+/dev/ttyACM0		      0660   radio      radio
 
-# for lsm6ds3
-
-#common sensors files
+# For lsm6ds3
 /sys/devices/iio:device* buffer/enable 0666 system system
 /sys/devices/iio:device* buffer/length 0666 system system
 /sys/devices/iio:device* flush 0666 system system

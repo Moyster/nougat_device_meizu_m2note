@@ -2,7 +2,7 @@ import init.mt6735.usb.rc
 import init.modem.rc
 
 on late-fs
-    # boot time fs tune
+    # Boot time fs tune
     write /sys/block/mmcblk0/queue/iostats 0
     write /sys/block/mmcblk0/queue/iosched/slice_idle 0
     write /sys/block/mmcblk0/queue/read_ahead_kb 2048
@@ -10,7 +10,7 @@ on late-fs
 
 on early-boot
     # NOTE: early-boot is AFTER even post-fs-data!
-    # damn this is so easily overlooked
+    # Damn this is so easily overlooked
 
 on early-init
     mount debugfs /sys/kernel/debug /sys/kernel/debug mode=755
@@ -31,7 +31,7 @@ on init
     mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
     mkdir /storage/usbotg 0700 root root
 
-    # ion device
+    # Ion device
     chmod 0666 /dev/ion
     chmod 0660 /sys/bus/platform/drivers/gsensor/cpsdata
     chmod 0660 /sys/bus/platform/drivers/gsensor/cpsrange
@@ -47,12 +47,14 @@ on init
     chown system system /sys/bus/platform/drivers/gsensor/fifo_mode
     chown system system /sys/bus/platform/drivers/gsensor/fifo_data_frame
     chown system system /sys/bus/platform/drivers/gsensor/fifo_framecount
-    # add for mag 
+
+    # Add for mag
     chmod 0660 /sys/bus/platform/drivers/msensor/rawdata 
     chown system system /sys/bus/platform/drivers/msensor/rawdata 
     chmod 0660 /sys/bus/platform/drivers/msensor/daemon
     chown system system /sys/bus/platform/drivers/msensor/daemon
-    # add for gyro 
+
+    # Add for gyro
     chmod 0660 /sys/bus/platform/drivers/gyroscope/rawdata 
     chmod 0660 /sys/bus/platform/drivers/gyroscope/datarate 
     chmod 0660 /sys/bus/platform/drivers/gyroscope/range 
@@ -68,10 +70,11 @@ on init
     chown system system /sys/bus/platform/drivers/gyroscope/fifo_data_frame
     chown system system /sys/bus/platform/drivers/gyroscope/fifo_framecount
 
-    # change lk_env permission
+    # Change lk_env permission
     chown root system /proc/lk_env
     chmod 0660 /proc/lk_env
 
+    # Kmsg
     chown root system /dev/kmsg
     chmod 0660 /dev/kmsg
 
@@ -85,7 +88,7 @@ on post-fs
     swapon_all /fstab.swap
     write /proc/sys/vm/page-cluster 0
 
-    # change owner
+    # Change owner
     chown root system /proc/mtprof/cputime
     chown root system /proc/mtprof/reboot_pid
 
@@ -110,16 +113,11 @@ on post-fs
     symlink /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/nvram /dev/block/platform/mtk-msdc.0/by-name/nvram
     symlink /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/proinfo /dev/block/platform/mtk-msdc.0/by-name/proinfo
 
-    # Wifi
-    mknod /dev/wmtWifi c 153 0
+    # Wi-Fi
     chmod 0660 /dev/wmtWifi
     chown system system /dev/wmtWifi
 
-    mknod /dev/stpwmt c 190 0
-    mknod /dev/stpgps c 191 0
-    mknod /dev/stpbt  c 192 0
-
-    # BT
+    # Bluetooth
     chmod 0660 /dev/stpbt
     chown radio bluetooth /dev/stpbt
 
@@ -149,13 +147,13 @@ on post-fs-data
     symlink /nvdata /data/nvram
     mkdir /nvdata/media 0771 media audio
 
-    # Set SELinux security contexts on upgrade or policy update.
+    # Set Selinux security contexts on upgrade or policy update.
     restorecon_recursive /nvdata
 
-    #give system access to rfkill device node
+    # Give system access to rfkill device node
     chmod 0660 /dev/rfkill
 
-    # create for muxd pts device node to operate without root
+    # Create for muxd pts device node to operate without root
     mkdir /dev/radio 0770 radio radio
 
     mkdir /data/drm/wv 0770 drm system
@@ -180,27 +178,27 @@ on post-fs-data
     # Mali Graphics
     chmod 666 /dev/mali0
 
-    # watch dog kicker
+    # Watch dog kicker
     write /proc/wdk "0 20 30"
 
-    # set ptmx group to non-root
+    # Set ptmx group to non-root
     chown root radio /dev/ptmx
 
     # RTC
     mkdir /data/misc/rtc 0770 system system
 
-    # set mlock limit to infinate (for m4u operation)
+    # Set mlock limit to infinate (for m4u operation)
     setrlimit 8 -1 -1
 
     # CMDQ
     chmod 0640 /dev/mtk_cmdq
     chown system system /dev/mtk_cmdq
 
-    # OFFLOAD SERVICE
+    # Offload Service
     chmod 0640 /dev/offloadservice
     chown media media /dev/offloadservice
 
-    # Sensor
+    # Sensors
     chmod 0660 /dev/hwmsensor
     chmod 0660 /dev/msensor
     chmod 0660 /dev/gsensor
@@ -233,7 +231,7 @@ on post-fs-data
     chown system system /sys/class/misc/m_acc_misc/accbatch
     chown system system /sys/class/misc/m_acc_misc/accflush
 
-# ltr559
+    # ltr559
     chmod 0660 /sys/bus/i2c/devices/2-0023/als_data
     chown system system /sys/bus/i2c/devices/2-0023/als_data
 
@@ -255,14 +253,14 @@ on post-fs-data
     chmod 0660 /sys/bus/i2c/devices/2-0023/reg
     chown system system /sys/bus/i2c/devices/2-0023/reg
 
-    chmod 660            /sys/bus/i2c/devices/2-0023/self_test
-    chown system system  /sys/bus/i2c/devices/2-0023/self_test
+    chmod 0660 /sys/bus/i2c/devices/2-0023/self_test
+    chown system system /sys/bus/i2c/devices/2-0023/self_test
 
-# sensor st480 and ak09911
-    chmod 660            /sys/bus/i2c/devices/2-000c/self_test
-    chown system system  /sys/bus/i2c/devices/2-000c/self_test
+    # sensor st480 and ak09911
+    chmod 0660 /sys/bus/i2c/devices/2-000c/self_test
+    chown system system /sys/bus/i2c/devices/2-000c/self_test
 
-# lsm6ds3
+    # lsm6ds3
     chown system system /dev/iio\:device0
     chmod 0666 /dev/iio\:device0
     chown system system /dev/iio\:device1
@@ -283,12 +281,6 @@ on post-fs-data
     chmod 0666 /dev/iio\:device8
     chown system system /dev/iio\:device9
     chmod 0666 /dev/iio\:device9
-
-    #camera flashlight sysfs
-    chmod 0644 /sys/class/flashlightdrv/kd_camera_flashlight/flash1
-    chmod 0644 /sys/class/flashlightdrv/kd_camera_flashlight/flash2
-    chown media system /sys/class/flashlightdrv/kd_camera_flashlight/flash1
-    chown media system /sys/class/flashlightdrv/kd_camera_flashlight/flash2
 
     chmod 0660 /sys/class/misc/m_mag_misc/magactive
     chmod 0660 /sys/class/misc/m_mag_misc/magdelay
@@ -391,16 +383,14 @@ on post-fs-data
     chown system system /sys/class/meizu/compass/compass_id
     chown system system /sys/class/meizu/compass/compass_name
 
-    # Add by Meizu BSP@YinShunQing for HALL
+    # Add by Meizu for HALL
     chown system system /sys/devices/platform/gpio-keys.0/key_hall_state
     chmod 0440 /sys/devices/platform/gpio-keys.0/key_hall_state
-
-    # Add by WuWeilin@BSP for power mode permission 
-    chown system system /sys/power/power_mode
-
-    # Meizu Holster
     chown system system /sys/devices/mx_tsp/hall_mode
     chmod 0660 /sys/devices/mx_tsp/hall_mode
+
+    # Add by for power
+    chown system system /sys/power/power_mode
 
     # Meizu Gesture
     chown system system /sys/devices/platform/mx-gs/gesture_control
@@ -413,18 +403,17 @@ on post-fs-data
     chmod 0660 /sys/class/leds/button-backlight/oneshot_blink
     chmod 0660 /sys/class/leds/button-backlight/brightness
 
-    #duanzhanyang@wind-mobi.com 20150620
+    # Leds
     chown system system /sys/devices/mx_leds/leds_mode
 
-    #Accdet
+    # Accdet
     chown root radio /sys/devices/platform/Accdet_Driver/driver/accdet_call_state
 
-    #VideoCodec
-    mknod /dev/Vcodec c 160 0
+    # VideoCodec
     chmod 0660 /dev/Vcodec
     chown media camera /dev/Vcodec
 
-    #MJC
+    # MJC
     chmod 0660 /dev/MJC
     chown system media /dev/MJC
 
@@ -441,6 +430,7 @@ on post-fs-data
     chown system /sys/devices/platform/msensor/driver/cpsreptz
     chown system /sys/devices/platform/gsensor/driver/cpsopmode
     chown system /sys/devices/platform/gsensor/driver/cpsrange
+
     mkdir /data/data/mcube 0664 system system
 
     # Display
@@ -459,7 +449,7 @@ on post-fs-data
     chmod 0660 /dev/sw_sync
     chown system graphics /dev/sw_sync
 
-    # pmu
+    # Pmu
     chown root radio /sys/devices/platform/mt-pmic/pmic_access_bank0
     chown root radio /sys/devices/platform/mt-pmic/pmic_access_bank1
     chown root radio /sys/devices/platform/mt6311-user/mt6311_access
@@ -473,8 +463,7 @@ on post-fs-data
     chmod 0660 /dev/sec
     chown root system /dev/sec
 
-    # device info /proc interface
-    mknod /dev/devmap c 196 0;
+    # Device info /proc interface
     chmod 0440 /dev/devmap
     chown system camera /dev/devmap
 
@@ -482,12 +471,13 @@ on post-fs-data
     chown bluetooth radio /dev/ttyGS2
     chmod 0660 /dev/ttyGS2
 
-    # bluetooth
+    # Bluetooth
     mkdir /data/@btmtk 0770 bluetooth net_bt
     chown bluetooth bluetooth /data/@btmtk/host_cache
     chown bluetooth bluetooth /data/@btmtk/dev_cache
     chown bluetooth bluetooth /dev/hid-keyboard
     chmod 0660 /dev/hid-keyboard
+
     # Use uinput's default permission
     chown system net_bt_admin /dev/uinput
 
@@ -495,7 +485,7 @@ on post-fs-data
     chown system media /dev/uibc
     chmod 0660 /dev/uibc
 
-    #Camera
+    # Camera
     chmod 0660 /dev/camera-isp
     chmod 0660 /dev/camera-fdvt
     chmod 0660 /dev/kd_camera_hw
@@ -514,6 +504,11 @@ on post-fs-data
     chown system camera /dev/CAM_CAL_DRV
     chown system camera /dev/CAM_CAL_DRV_SUB
 
+    chmod 0644 /sys/class/flashlightdrv/kd_camera_flashlight/flash1
+    chmod 0644 /sys/class/flashlightdrv/kd_camera_flashlight/flash2
+    chown media system /sys/class/flashlightdrv/kd_camera_flashlight/flash1
+    chown media system /sys/class/flashlightdrv/kd_camera_flashlight/flash2
+
     # SMI
     chmod 0660 /dev/MTK_SMI
     chown system camera /dev/MTK_SMI
@@ -521,7 +516,7 @@ on post-fs-data
     chown system camera /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
     chmod 0660 /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
 
-    # change partition permission
+    # Change partition permission
     chmod 0640 /mtd@sec_ro
     chown root system /mtd@sec_ro
 
@@ -546,7 +541,7 @@ on post-fs-data
     chmod 0660 /mtd@misc
     chown root system /mtd@misc
 
-    # mtk_sched
+    # Mtk_sched
     chmod 0660 /dev/mtk_sched
     chown system media /dev/mtk_sched
 
@@ -554,7 +549,7 @@ on post-fs-data
     chmod 0660 /dev/ebc
     chown system media /dev/ebc
 
-    # autok
+    # Autok
     chown root system /sys/autok/debug
     chown root system /sys/autok/param_count
     chown root system /sys/autok/ready
@@ -566,7 +561,7 @@ on post-fs-data
     chown root system /sys/autok/stage1/2/LOG
     chown root system /sys/autok/stage2/2
 
-    #sn
+    # Serial
     chmod 0664 /sys/class/android_usb/android0/iSerial
     chown root system /sys/class/android_usb/android0/iSerial
     chmod 0664 /sys/devices/platform/mt_usb/cmode
@@ -582,7 +577,7 @@ on post-fs-data
     chmod 0660 /dev/ttyC2
     chown system gps /dev/ttyC2
 
-    # Add by MEIZU BSP
+    # Meizu product name
     setprop ro.product.mobile.name m81
 
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
@@ -593,7 +588,7 @@ on post-fs-data
     chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 
 on boot
-    # default is root radio 0440
+    # Default is root radio 0440
     chmod 0644 /proc/cmdline
 
     write /proc/sys/vm/dirty_writeback_centisecs 300
@@ -604,17 +599,18 @@ on boot
     chown system system /sys/bus/platform/drivers/gyroscope/gyro_orientation
     chown system system /sys/devices/system/cpu/cpufreq/hotplug/cpu_num_base
     chmod 0660 /sys/devices/system/cpu/cpufreq/hotplug/cpu_num_base
-    chown root   system /sys/kernel/debug/binder/transaction_log_enable
-    chown root   system /sys/kernel/debug/binder/perf_evalue
+    chown root system /sys/kernel/debug/binder/transaction_log_enable
+    chown root system /sys/kernel/debug/binder/perf_evalue
 
     chown system /sys/module/mlog/parameters/do_mlog
     chown system /sys/module/mlog/parameters/timer_intval
 
-    chown root   radio  /sys/class/leds/lcd-backlight/duty
-    chown root   radio  /sys/class/leds/lcd-backlight/div
+    chown root radio /sys/class/leds/lcd-backlight/duty
+    chown root radio /sys/class/leds/lcd-backlight/div
     chown system system /sys/class/leds/lcd-backlight/trigger
     chown system system /sys/class/leds/button-backlight/trigger
-    # Add by Meizu BSP@YinShunQing
+
+    # Leds
     chown system system /sys/class/leds/button-backlight/oneshot_blink
 
     # Permission for hibernation
@@ -645,7 +641,7 @@ on boot
     chown system system /proc/fliper
     chmod 0664 /proc/fliper
 
-    #change permissions about terminal
+    # Change permissions about terminal
     chown root radio /proc/net/vlan/config
     chmod 0640 /proc/net/vlan/config
     chown root radio /proc/net/ip6_tables_matches
@@ -720,11 +716,7 @@ service pq /vendor/bin/pq
     group system graphics
     oneshot
 
-#
-# MTK Wi-Fi related services (Begin)
-#
-
-# monitor property and power on/off wlan
+# Monitor property and power on/off wlan
 on property:wlan.driver.status=ok
     write /dev/wmtWifi "1"
 
@@ -737,10 +729,6 @@ service p2p_supplicant /system/bin/wpa_supplicant \
     -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf -e/data/misc/wifi/entropy.bin \
     -I/system/etc/wifi/p2p_supplicant_overlay.conf \
     -O/data/misc/wifi/sockets -g@android:wpa_wlan0
-    #   we will start as root and wpa_supplicant will switch to user wifi
-    #   after setting up the capabilities required for WEXT
-    #   user wifi
-    #   group wifi inet keystore
     class main
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
@@ -750,18 +738,10 @@ service wpa_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin \
     -I/system/etc/wifi/wpa_supplicant_overlay.conf \
     -O/data/misc/wifi/sockets -g@android:wpa_wlan0
-    #   we will start as root and wpa_supplicant will switch to user wifi
-    #   after setting up the capabilities required for WEXT
-    #   user wifi
-    #   group wifi inet keystore
     class main
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
     oneshot
-
-#
-# MTK Wi-Fi related services (End)
-#
 
 # GPS
 service agpsd /vendor/bin/mtk_agpsd
@@ -794,17 +774,11 @@ service akmd09911 /vendor/bin/akmd09911
     group system
     class main
 
-#
-# emsvr service (start)
-#
+# Emsvr
 service emsvr /vendor/bin/em_svr
     disabled
     user system
     group system radio diag net_bt_stack
-
-#
-# emsvr service (end)
-#
 
 # Thermal
 service thermal_manager /vendor/bin/thermal_manager
@@ -829,7 +803,7 @@ service conn_launcher /vendor/bin/6620_launcher -p /vendor/firmware/
     group system
     class core
 
-# healthd charger
+# Healthd charger
 service charger /sbin/healthd -c
     class charger
     critical

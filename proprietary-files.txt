@@ -1,5 +1,0 @@
-/* Needs to be regenerated, this file was not updated since CM-12.1 (~mid 2016~)
- * - check android_vendor_m2note
- * - extract scripts were removed to prevent pulling the wrong blobs list
- */
-

@@ -26,13 +26,13 @@ on post-fs-data
     restorecon_recursive /protect_f
     restorecon_recursive /protect_s
 
-    # ignore permission check
+    # Ignore permission check
     write /data/ccci_cfg/md_new_ver.1 "flag"
     chmod 0660 /data/ccci_cfg/md_new_ver.1
 
     setprop vold.post_fs_data_done 1
 
-    # clear the sim switch flag
+    # Clear the sim switch flag
     setprop persist.radio.simswitch ""
 
 service gsm0710muxd /vendor/bin/gsm0710muxd -s /dev/ttyC0 -f 512 -n 8 -m basic
@@ -49,10 +49,6 @@ service muxreport-daemon /vendor/bin/muxreport
     disabled
     oneshot
 
-# disable rild
-service ril-daemon /vendor/bin/mtkrild
-    disabled
-
 service ril-daemon-mtk /vendor/bin/mtkrild
     class core
     socket rild stream 660 root radio
@@ -66,9 +62,6 @@ service ril-daemon-mtk /vendor/bin/mtkrild
     socket rild-mtk-ut-2 stream 660 radio net_bt
     socket rild-mtk-modem stream 660 radio system
     socket rild-atci stream 660 root radio
-#    socket rild-mal stream 660 radio system
-#    socket rild-mal-at stream 660 radio system
-#    socket rild-vsim stream 660 root radio
     socket sap_uim_socket1 stream 660 bluetooth bluetooth
     socket sap_uim_socket2 stream 660 bluetooth bluetooth
     socket sap_uim_socket3 stream 660 bluetooth bluetooth
@@ -77,7 +70,6 @@ service ril-daemon-mtk /vendor/bin/mtkrild
     group radio cache inet misc audio sdcard_r sdcard_rw log system
     disabled
     oneshot
-
 
 service ccci_fsd /vendor/bin/ccci_fsd 0
     user radio
@@ -99,4 +91,3 @@ service terservice /vendor/bin/terservice
 
 on property:ril.muxreport=1
     start muxreport-daemon
-

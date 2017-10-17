@@ -18,6 +18,7 @@
 -->
 
 <device name="Android">
+
   <!-- Most values are the incremental current used by a feature,
        in mA (measured at nominal voltage).
        The default values are deliberately incorrect dummy values.
@@ -44,8 +45,8 @@
         <value>4</value>
         <value>4</value>
     </array>
-  <!-- Different CPU speeds as reported in
-       /sys/devices/system/cpu/cpufreq/all_time_in_state -->
+
+  <!-- CPU speeds -->
   <array name="cpu.speeds">
       <value>299000</value> <!-- 299 MHz CPU speed -->
       <value>442000</value> <!-- 442 MHz CPU speed -->
@@ -60,8 +61,10 @@
 
   <!-- Current when CPU is idle -->
   <item name="cpu.idle">6</item>
+
   <!-- Current when CPU is awake -->
   <item name="cpu.awake">34</item>
+
   <!-- Current at each CPU speed, as per 'cpu.speeds' -->
   <array name="cpu.active">
       <value>50.3</value> <!-- ~70mA -->
@@ -80,6 +83,7 @@
       <value>286.9</value> <!-- ~380mA -->
       <value>313.6</value> <!-- ~440mA -->
   </array>
+
   <!-- This is the battery capacity in mAh (measured at nominal voltage) -->
   <item name="battery.capacity">3100</item>
 
@@ -90,4 +94,5 @@
       <value>.2</value> <!-- 513-4,096/hr -->
       <value>2</value> <!-- 4097-/hr -->
   </array>
+
 </device>

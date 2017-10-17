@@ -14,6 +14,7 @@
      limitations under the License.
 -->
 <resources>
+
     <!-- Turn on LiveDisplay auto mode by default -->
         <integer name="config_defaultLiveDisplayMode">2</integer>
 

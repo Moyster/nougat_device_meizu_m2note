@@ -32,8 +32,9 @@ public class GestureController {
     public static final String TOUCHSCREEN_GESTURE_CONTROL_NODE = "/sys/devices/platform/mx-gs/gesture_control";
     public static final String TOUCHSCREEN_GESTURE_CONTROL_KEY = "touchscreen_gesture_control";
 
-    // M2Note gesture keys
+    // M2 Note gesture keys
     public static final int DOUBLE_TAP = 0xA0; //160
+
     public static final int SWIPE_X_LEFT = 0xB0; //176
     public static final int SWIPE_X_RIGHT = 0xB1;
     public static final int SWIPE_Y_UP = 0xB2;
