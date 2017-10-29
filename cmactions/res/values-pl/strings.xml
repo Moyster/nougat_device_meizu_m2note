@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+     Copyright (C) 2013-2014 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="device_settings_app_name">Gesty na zablokowanym ekranie</string>
+
+    <!-- Gesture shortcuts -->
+    <string name="screen_gestures_panel_title">Gesty na zablokowanym ekranie</string>
+    <string name="screen_gestures_panel_summary">Rysuj gesty na zablokowanym ekranie</string>
+
+    <string name="touchscreen_control_gesture_head">Gesty na zablokowanym ekranie</string>
+    <string name="touchscreen_control_gesture_title">Włącz gesty</string>
+    <string name="gesture_category_title">Dostępne gesty</string>
+
+    <string name="touchscreen_dtp_gesture_title">Podwójne tapnięcie</string>
+    <string name="touchscreen_x_left_gesture_title">Przesunięcie w lewo</string>
+    <string name="touchscreen_x_right_gesture_title">Przesunięcie w prawo</string>
+    <string name="touchscreen_y_down_gesture_title">Przesunięcie w dół</string>
+    <string name="touchscreen_y_up_gesture_title">Przesunięcie w góre</string>
+
+    <string name="touchscreen_c_gesture_title">Narysuj \"c\"</string>
+    <string name="touchscreen_z_gesture_title">Narysuj \"z\"</string>
+    <string name="touchscreen_s_gesture_title">Narysuj \"s\"</string>
+    <string name="touchscreen_w_gesture_title">Narysuj \"w\"</string>
+    <string name="touchscreen_o_gesture_title">Narysuj \"o\"</string>
+    <string name="touchscreen_v_gesture_title">Narysuj \"v\"</string>
+    <string name="touchscreen_e_gesture_title">Narysuj \"e\"</string>
+    <string name="touchscreen_m_gesture_title">Narysuj \"m\"</string>
+
+    <!-- haptic feedback  -->
+    <string name="touchscreen_extras">Dodatkowe</string>
+    <string name="haptic_feedback">Wibracje</string>
+    <string name="haptic_feedback_summary">Wibruj gdy gest zostanie narysowany</string>
+
+    <!-- gesture actions  -->
+    <string name="disabled">Wyłączone</string>
+    <string name="wakeUp">Obudź urządzenie</string>
+    <string name="unlock">Odblokuj urządzenie</string>
+    <string name="play">Graj/zatrzymaj muzykę</string>
+    <string name="play">Play/Pause</string>
+    <string name="next">Następny utwór</string>
+    <string name="prev">Poprzedni utwór</string>
+    <string name="camera">Uruchom aparat</string>
+    <string name="flashlight">Włącz/wyłącz latarkę</string>
+    <string name="doNotDisturbMode">Włącz tryb nie przeszkadzać</string>
+    <string name="normalMode">Włącz dźwięki</string>
+    <string name="muteMode">Wycisz dźwięki</string>
+
+</resources>
