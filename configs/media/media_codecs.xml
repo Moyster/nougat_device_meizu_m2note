@@ -76,8 +76,6 @@ Only the three quirks included above are recognized at this point:
 
 <MediaCodecs>
     <Decoders>
-        <!-- ffmpeg flac codec -->
-        <MediaCodec name="OMX.ffmpeg.flac.decoder" type="audio/flac" />
         <!-- Mtk codecs -->
         <MediaCodec name="OMX.MTK.VIDEO.DECODER.MPEG4" type="video/mp4v-es" >
             <Limit name="size" min="16x16" max="1920x1088" />
@@ -159,6 +157,7 @@ Only the three quirks included above are recognized at this point:
             <Feature name="can-swap-width-height" />
         </MediaCodec>
     </Encoders>
+    <Include href="media_codecs_ffmpeg.xml" />
     <Include href="media_codecs_google_audio.xml" />
     <Include href="media_codecs_google_telephony.xml" />
     <Include href="media_codecs_google_video_le.xml" />
