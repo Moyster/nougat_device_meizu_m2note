@@ -3,7 +3,6 @@
 # The filesystem that contains the filesystem checker binary (typically /system) cannot
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
-/dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/system	/system		ext4	ro,lazytime,barrier=0							wait
 /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/userdata	/data		ext4	lazytime,nosuid,nodev,noauto_da_alloc,discard,barrier=0			wait,check,resize,encryptable=/dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/metadata
 /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/userdata	/data		f2fs	rw,lazytime,nosuid,nodev,inline_xattr,nobarrier				wait,check,formattable,encryptable=/dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/metadata
 /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/cache	/cache		ext4	lazytime,nosuid,nodev,noauto_da_alloc,discard,barrier=0			wait,check
