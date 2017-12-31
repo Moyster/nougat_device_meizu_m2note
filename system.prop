@@ -32,6 +32,7 @@ ro.sys.usb.storage.type=mtp,mass_storage
 ro.sys.sdcardfs=true
 
 # audio
+ro.config.media_vol_steps=30
 ro.audio.silent=0
 persist.audio.dirac.speaker=true
 
@@ -41,6 +42,7 @@ ro.kernel.android.checkjni=0
 dalvik.vm.checkjni=false
 
 # Gfx
+sys.display-size=1920x1080
 ro.opengles.version=196609
 debug.hwui.render_dirty_regions=false
 
@@ -65,6 +67,7 @@ ro.telephony.ril_class=MediaTekRIL
 ro.telephony.ril.config=fakeiccid
 
 ro.telephony.sim.count=2
+ro.telephony.default_network=9
 persist.radio.multisim.config=dsds
 ril.current.share_modem=2
 ril.external.md=0
