@@ -17,8 +17,6 @@
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cyanogenmod.settings.doze"
-    android:versionCode="1"
-    android:versionName="1.0"
     android:sharedUserId="android.uid.system">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
@@ -26,12 +24,8 @@
 
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
 
-    <uses-sdk
-        android:minSdkVersion="24"
-        android:targetSdkVersion="24"/>
-
     <application
-        android:label="MeizuDoze"
+        android:label="@string/device_settings_app_name"
         android:persistent="true">
 
         <receiver android:name=".BootCompletedReceiver">

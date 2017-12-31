@@ -18,4 +18,3 @@
     android:color="?android:attr/colorControlHighlight">
     <item android:drawable="@color/switch_bar_background" />
 </ripple>
-
