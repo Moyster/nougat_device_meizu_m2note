@@ -1,7 +1,3 @@
-# cameraserver with system group
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/rootdir/init/cameraserver.rc:system/etc/init/cameraserver.rc 
-
 # device rootdir
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/rootdir/fstab.mt6735:root/fstab.mt6735 \
